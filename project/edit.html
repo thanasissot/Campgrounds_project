@@ -1,0 +1,16 @@
+<div class="container-fluid mt-5" ng-repeat='camp in campgrounds | filter: id'>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form ng-submit='formUpdate(name, image, description, camp._id)'>
+        <h1 class="display-4">Edit campground</h1>
+        <div class="form-group">
+          <input class="form-control m-4 w-75" required placeholder='{{camp.name}}' type="text" name="campground" ng-model='name'>
+          <input class="form-control m-4 w-75" required placeholder='{{camp.image}}' type="text" name="image url" ng-model='image'>
+          <input class="form-control m-4 w-75" type="text" name="description" placeholder='{{camp.description}}' required ng-model='description'>
+          <button class="btn-block btn-primary mx-4 mt-2 w-75" style="height: 50px; border-radius: 10px;" type="submit" value='Submit Form' name="button">Submit!</button>
+        </div>
+      </form>
+      <a class="nav-link mx-2" ui-sref='show({id: camp._id})'>Go Back</a>
+    </div>
+  </div>
+</div>

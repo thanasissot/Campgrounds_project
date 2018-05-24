@@ -1,0 +1,22 @@
+{
+  "name": "v1",
+  "version": "1.0.0",
+  "description": "Yelpcamp project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "browserify ./project/app/index.js -o ./project/app/dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thanasis Namikazee",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.10",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "hbs": "^4.0.1",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.16"
+  }
+}
