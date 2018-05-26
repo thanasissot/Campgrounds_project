@@ -1,6 +1,5 @@
 {{> header}}
 
-<div class="container">
   <div class="row">
     <div class="col-md-3">
       <p class="lead">YelpCamp</p>
@@ -12,13 +11,15 @@
           name="button">Go back</button></a>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7 offset-md-1">
       <div class="card">
         <img src="{{campground.image}}" class="card-img-top" alt="Card image cap">
         <div class="card-body">
           <span class="float-right font-weight-bold">$9.00/night</span>
           <h3 class="card-title text-primary"> {{campground.name}} </h3>
           <p class="card-text"> {{campground.description}} </p>
+          <p class="font-weight-bold"> Submited By: {{ campground.author.username }}</p>
+          <a href="/campground/{{campground._id}}/edit" class="btn btn-warning">Edit</a>
         </div>
       </div>
         <div class="card p-3" style="margin-top: 10px; background: #ccc;">
@@ -30,7 +31,7 @@
           {{#each campground.comments}}
             <div class="row">
               <div class="col-md-12">
-                <strong>{{this.author}}</strong>
+                <strong>{{this.author.username}}</strong>
                 <span class="float-right">10 days ago</span>
                 <p> {{this.text}} </p>
               </div>
@@ -39,7 +40,6 @@
         </div>
     </div>
   </div>
-</div>
 
 
 {{> footer}}
