@@ -18,16 +18,24 @@
 				<a href="/" class="navbar-brand">Yelp_Camp</a>
 				<div class="collapse navbar-collapse" id='navbarCollapse'>
 					<ul class="navbar-nav ml-auto">
+						{{#unless currentUser}}
 						<li class="nav-item">
-							<a href="#explore-head-section" class="nav-link">Login</a>
+							<a href="/login" class="nav-link">Login</a>
 						</li>
 						<li class="nav-item">
-							<a href="#create-head-section" class="nav-link">Sign Up</a>
+							<a href="/register" class="nav-link">Sign Up</a>
+						</li>
+						{{else}}
+						<li class="nav-item">
+							<a href="#" class="nav-link"> Signed in As {{currentUser.username}} </a> 
 						</li>
 						<li class="nav-item">
-							<a href="#share-head-section" class="nav-link">Log out</a>
+							<a href="/logout" class="nav-link">Log out</a>
 						</li>
+						{{/unless}}
 					</ul>
 				</div>
 			</div>
 		</nav>
+
+		<div class="container" id="section">
