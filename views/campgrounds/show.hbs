@@ -19,7 +19,14 @@
           <h3 class="card-title text-primary"> {{campground.name}} </h3>
           <p class="card-text"> {{campground.description}} </p>
           <p class="font-weight-bold"> Submited By: {{ campground.author.username }}</p>
-          <a href="/campground/{{campground._id}}/edit" class="btn btn-warning">Edit</a>
+          {{#if bool}}
+            <!-- EDIT BUTTON -->
+          <a href="/campgrounds/{{campground._id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+          <!-- DELETE BUTTON -->
+          <form class="d-inline" action="/campgrounds/{{campground._id}}?_method=DELETE" method="post">
+            <button type="submit" name="button" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+          {{/if}}
         </div>
       </div>
         <div class="card p-3" style="margin-top: 10px; background: #ccc;">
@@ -29,11 +36,12 @@
           </div>
           <hr>
           {{#each campground.comments}}
-            <div class="row">
+            <div class="row mb-2">
               <div class="col-md-12">
                 <strong>{{this.author.username}}</strong>
                 <span class="float-right">10 days ago</span>
-                <p> {{this.text}} </p>
+                <p class="mb-1"> {{this.text}} </p>
+                  {{showButtons ../currentUser ../campground}}
               </div>
             </div>
           {{/each}}

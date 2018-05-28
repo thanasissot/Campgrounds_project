@@ -12,7 +12,18 @@ const Comment               = require('./models/comment');
 const User                  = require('./models/user');
 const seedDB                = require('./seeds');
 
-
+hbs.registerHelper('showButtons', function(user, campground) {
+  if(this.author.id.equals(user)) {
+    return new hbs.SafeString(
+      `<a class="btn btn-sm btn-warning"
+        href="/campgrounds/${campground._id}/comments/${this.id}/edit">Edit</a>
+       <form class='d-inline' action="/campgrounds/${campground._id}/comments/${this.id}?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-sm btn-danger">Delete</Delete>
+      </form>`
+    );
+  }
+  else return
+});
 
 const commentRoutes         = require('./routes/comments');
 const campgroundRoutes      = require('./routes/campgrounds');
@@ -47,7 +58,7 @@ server.use(function (req, res, next) {
 });
 // the use of routes
 server.use(indexRoutes);
-server.use('/campgrounds/:id', commentRoutes);
+server.use('/campgrounds/:id/comments', commentRoutes);
 server.use('/campgrounds', campgroundRoutes);
 
 
