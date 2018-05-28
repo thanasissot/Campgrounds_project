@@ -61,32 +61,4 @@ server.use(indexRoutes);
 server.use('/campgrounds/:id/comments', commentRoutes);
 server.use('/campgrounds', campgroundRoutes);
 
-
-
-
-
 server.listen(3000, () =>  console.log('Server started @port 3000'));
-
-
-
-
-
-// // SCHEMA SETUP
-// var campgroundSchema = new mongoose.Schema({
-//     name: String,
-//     image: String,
-//     description: String
-// });
-// var Campground = mongoose.model("Campground", campgroundSchema);
-
-// Campground.create(
-//     {name: "Salmon Creek",
-//     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjjLDPiGRQoyw7Dj_Sk5W7uVa0HKVELkI_pmX843Kg4zrVGtG",
-//     description: "This is not a campground but a random picture"
-//     },
-//     function(err,campground){
-//         if(err){
-//             console.log(err);
-//         }else {console.log(campground);
-//         }
-//     });

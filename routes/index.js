@@ -2,6 +2,8 @@ const express  = require('express');
 const router   = express.Router();
 const passport = require('passport');
 const User     = require('../models/user');
+// when requiring a directory without specifying a file it will automatically detect and use the index.js
+const middleware = require('../middleware');
 
 // ROOT ROUTE
 router.get("/", function(req,res){
@@ -46,14 +48,5 @@ router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/campgrounds');
 });
-
-
-// MIDDLEWARE
-function isLoggedIn (req, res, next) {
-  if(req.isAuthenticated()){
-    return next();
-  }
-  res.redirect('/login');
-}
 
 module.exports = router;
